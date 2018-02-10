@@ -272,10 +272,6 @@ top: -8px;
 	Features
 ==========================================*/
 
-.features {
-  background-color: #f4f7f9;
-}
-
 .owl-controls {
   bottom: -45px;
   margin-top: 10px;
@@ -732,4 +728,12 @@ label.error {
 
 .carousel-caption .wow {
     background-color: rgba(44, 60, 37, 0.6);
+}
+
+/*=========================================
+	ALL SECTIONS common stuff
+==========================================*/
+
+.features, .team{
+    background-color: #f4f7f9;
 }
