@@ -8,6 +8,15 @@ jQuery(window).load(function(){
 
 });
 
+/* Preloader 2 ( from https://neuethemes.net/preview/html/electronic/html/index00.html) */
+
+setTimeout(function(){
+    jQuery('body').addClass('loaded');
+    //jQuery('h1').css('color','#222222');
+    //zet added:
+    $("#loader").fadeOut("slow");
+}, 3000);
+
 
 $(document).ready(function(){
 
