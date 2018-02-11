@@ -726,7 +726,7 @@ top: -8px;
 }
 
 .contact-form .form-control {
-  border-color: -moz-use-text-color -moz-use-text-color #cccccc;
+  border-color: currentcolor #cccccc;
   border-radius: 0;
   border-style: none none solid;
   border-width: 0 0 1px;
