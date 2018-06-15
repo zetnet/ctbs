@@ -723,7 +723,8 @@ Contact Us
     </div>
 
     <!-- Google map -->
-    <div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>
+    <!--<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>-->
+    <iframe class="wow bounceInDown animated animated" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6570.0494811554145!2d23.59605193695346!3d46.77736150001552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490ea1274cacd3%3A0x3e04972caded714d!2sStrada+Porumbeilor+13%2C+Cluj-Napoca+400000%2C+Romania!5e0!3m2!1sen!2suk!4v1523211769645" width="100%" height="250" frameborder="0" style="border: 0px; visibility: visible; animation-name: bounceInDown;" allowfullscreen=""></iframe>
     <!-- End Google map -->
 
 </section>
@@ -857,20 +858,22 @@ End Contact Us
                     email: true
                 },
                 message: {
-                    required: true
+                    required: true,
+                    minlength: 17
                 }
             },
             messages: {
                 name: {
-                    required: "come on, you have a name don't you?",
-                    minlength: "your name must consist of at least 2 characters"
+                    required: "Ai și tu un nume, nu?",
+                    minlength: "Numele tău ar trebui să aibă minim 2 caractere"
                 },
                 email: {
-                    required: "no email, no message"
+                    required: "nici un email, nici un mesaj",
+                    email: "Te rog introdu o adresă validă."
                 },
                 message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "thats all? really?"
+                    required: "Mmm...da, trebuie să scrii ceva pentru a putea trimite acest formular.",
+                    minlength: "Doar atât? Pe bune?"
                 }
             },
             submitHandler: function (form) {
@@ -878,15 +881,19 @@ End Contact Us
                     type: "POST",
                     data: $(form).serialize(),
                     url: "process.php",
-                    success: function () {
+                    success: function (result) {
                         $('#contact-form :input').attr('disabled', 'disabled');
+                        $('#test').html(result);
+                        $('#mesaj').html('Mesaj trimis cu succes! Vă mulțumim!');
+                        console.log(result);
                         $('#contact-form').fadeTo("slow", 0.15, function () {
                             $(this).find(':input').attr('disabled', 'disabled');
                             $(this).find('label').css('cursor', 'default');
                             $('#success').fadeIn();
                         });
                     },
-                    error: function () {
+                    error: function (result) {
+                        $('#test').html(result);
                         $('#contact-form').fadeTo("slow", 0.15, function () {
                             $('#error').fadeIn();
                         });

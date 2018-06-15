@@ -1,19 +1,20 @@
 <?php
 
-    $to = "";
-    $from = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $name = $_REQUEST['name'];
-    $headers = "From: $from";
+$to = "marcel.cozma@gmail.com";
+$from = $_REQUEST['name'];
+$subject = "Mesaj de la: $from";
+$email = $_REQUEST['email'];
+$name = $_REQUEST['name'];
+$headers = "From: $email";
 
-    $fields = array();
-    $fields{"name"} = "name";
-    $fields{"email"} = "email";
-    $fields{"subject"} = "subject";
-    $fields{"message"} = "message";
+$fields = array();
+$fields{"name"} = "Nume";
+$fields{"email"} = "Email";
+$fields{"message"} = "Mesaj";
 
-    $body = "Here is what was sent:\n\n"; foreach($fields as $a => $b){   $body .= sprintf("%20s: %s\n",$b,$_REQUEST[$a]); }
+$body = "Ai primit următorul mesaj:\n\n";
+foreach($fields as $a => $b){   $body .= sprintf("%20s: %s\n",$b,$_REQUEST[$a]); }
 
-    $send = mail($to, $subject, $body, $headers);
+$send = mail($to, $subject, $body, $headers);
 
 ?>
