@@ -751,7 +751,7 @@ border-bottom-color: #c0392b;
 label.error {
   color: #c0392b;
   font-weight: normal;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 .contact-form #form-submit {
