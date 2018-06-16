@@ -4,7 +4,7 @@
 
 jQuery(window).load(function(){
 
-	$("#preloader").fadeOut("slow");
+	$("#preloader").fadeOut("fast");
 
 });
 
@@ -14,7 +14,7 @@ setTimeout(function(){
     jQuery('body').addClass('loaded');
     //jQuery('h1').css('color','#222222');
     //zet added:
-    $("#loader").fadeOut("slow");
+    $("#loader").fadeOut("fast");
 }, 3000);
 
 
@@ -32,13 +32,14 @@ $(document).ready(function(){
 		easing: 'easeInOutExpo',
 		updateHash: true,
 		beforeStart: function() {
-			console.log('begin scrolling');
+			console.log('început scrolling');
 		},
 		onComplete: function() {
 			console.log('done scrolling');
 		}
 	});
-	
+
+    /*===zzz edited
     $(window).scroll(function () {
         if ($(window).scrollTop() > 400) {
             $("#navigation").css("background-color","#0EB493");
@@ -46,8 +47,19 @@ $(document).ready(function(){
             $("#navigation").css("background-color","rgba(16, 22, 54, 0.2)");
         }
     });
-	
-	/* ========================================================================= */
+    ==== eof zzz */
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 400) {
+            // $("#navigation").css("background-color","#0EB493");
+            $("#logosus").css("background-color","#0EB493")
+        } else {
+            // $("#navigation").css("background-color","rgba(16, 22, 54, 0.2)");
+            $("#logosus").css("background-color","rgba(16, 22, 54, 0.2)")
+        }
+    });
+
+    /* ========================================================================= */
 	/*	Fix Slider Height
 	/* ========================================================================= */	
 
@@ -128,7 +140,7 @@ $(document).ready(function(){
 
 // ==========  START GOOGLE MAP ========== //
 function initialize() {
-    var myLatLng = new google.maps.LatLng(46.7833002, 23.4764293);
+    var myLatLng = new google.maps.LatLng(46.781491, 23.596900);
 
     var mapOptions = {
         zoom: 14,
